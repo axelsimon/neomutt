@@ -46,6 +46,7 @@
 #include "context.h"
 #include "copy.h"
 #include "globals.h"
+#include "help/help.h"
 #include "hook.h"
 #include "keymap.h"
 #include "mailbox.h"
@@ -108,6 +109,7 @@ static const struct MxOps *mx_ops[] = {
 #ifdef USE_NNTP
   &mx_nntp_ops,
 #endif
+  &mx_help_ops,
 
   /* Local mailboxes */
   &mx_maildir_ops,
@@ -1288,6 +1290,8 @@ int mx_check_empty(const char *path)
       return (rv <= 0);
     }
 #endif
+    case MUTT_HELP:
+      return 0;
     default:
       errno = EINVAL;
       return -1;
@@ -1365,6 +1369,7 @@ int mx_path_probe(const char *path, const struct stat *st)
 #ifdef USE_NNTP
     &mx_nntp_ops,
 #endif
+    &mx_help_ops,
   };
 
   static const struct MxOps *with_stat[] = {
