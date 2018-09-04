@@ -73,6 +73,7 @@ imap/auth_anon.c
 imap/auth_cram.c
 imap/auth_gss.c
 imap/auth_login.c
+imap/auth_oauth.c
 imap/auth_plain.c
 imap/auth_sasl.c
 imap/browse.c
@@ -88,6 +89,7 @@ maildir/mh.c
 main.c
 mbox/mbox.c
 menu.c
+monitor.c
 mutt/base64.c
 mutt/buffer.c
 mutt/charset.c
